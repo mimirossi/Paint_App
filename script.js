@@ -34,10 +34,25 @@ let mouseLocation = {
 myCanvas.addEventListener("mousedown", (event) => {
   mouseLocation.canDraw = true;
 });
+myCanvas.addEventListener("touchstart", (event) => {
+  mouseLocation.canDraw = true;
+});
 myCanvas.addEventListener("mouseup", (event) => {
   mouseLocation.canDraw = false;
 });
+myCanvas.addEventListener("touchend", (event) => {
+  mouseLocation.canDraw = false;
+});
 myCanvas.addEventListener("mousemove", (event) => {
+  mouseLocation.lastX = mouseLocation.currentX;
+  mouseLocation.lastY = mouseLocation.currentY;
+  mouseLocation.currentX = event.offsetX;
+  mouseLocation.currentY = event.offsetY;
+  if (mouseLocation.canDraw) {
+    draw();
+  }
+});
+myCanvas.addEventListener("touchmove", (event) => {
   mouseLocation.lastX = mouseLocation.currentX;
   mouseLocation.lastY = mouseLocation.currentY;
   mouseLocation.currentX = event.offsetX;
