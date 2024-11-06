@@ -1,5 +1,10 @@
+body {
+  display: flex;
+  justify-content: center;
+}
 h1 {
   font-family: sans-serif;
+  text-align: center;
   margin: 50px;
   margin-bottom: 0;
   color: rgb(255, 51, 85);
@@ -9,6 +14,7 @@ p {
   margin-left: 50px;
   color: #676767;
   max-width: 800px;
+  text-align: center;
 }
 canvas {
   border: 1px solid black;
@@ -50,8 +56,8 @@ canvas {
   text-decoration: none;
   color: black;
   font-family: sans-serif;
-  display: block;
-  margin-left: 750px;
+  /* display: block; */
+  /* margin-left: 750px; */
 }
 .download:hover {
   color: #d3d3d3;
@@ -59,4 +65,21 @@ canvas {
 .imgContainer {
   margin-top: 30px;
   margin-left: 50px;
+  max-width: 800px;
+}
+.buttons {
+  display: flex;
+  justify-content: space-between;
+}
+@media only screen and (max-width: 800px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+  .imgContainer {
+    max-width: 300px;
+  }
+  p {
+    max-width: 300px;
+  }
 }

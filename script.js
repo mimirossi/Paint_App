@@ -5,7 +5,7 @@ let range = document.querySelector("#range");
 let save = document.querySelector("#save");
 let clear = document.querySelector("#clear");
 let output = document.querySelector("#output");
-
+console.dir(myCanvas);
 let mouseLocation = {
   lastX: 0,
   lastY: 0,
@@ -73,6 +73,9 @@ function saveImg() {
   img.src = dataURL;
   // metto l'immagine nel div contenitore
   imgContainer.append(img);
+  let buttonContainer = document.createElement("div");
+  buttonContainer.classList.add("buttons");
+  imgContainer.append(buttonContainer);
   // aggiungo un pulsante per rimuovere l'immagine
   let deleteButton = document.createElement("button");
   deleteButton.textContent = "Delete";
@@ -90,8 +93,21 @@ function saveImg() {
   // in questo modo lo posso scaricare al click del pulsante
   imgDownload.setAttribute("download", "my-painting.jpg");
   // aggiungo il pulsante di download al container
-  imgContainer.append(imgDownload);
+  buttonContainer.append(imgDownload);
   // aggiungo al container il pulsante di rimozione
-  imgContainer.append(deleteButton);
+  buttonContainer.append(deleteButton);
   output.prepend(imgContainer);
 }
+function changeCanvas(mediaQuery) {
+  if (mediaQuery.matches) {
+    myCanvas.width = 300;
+  } else {
+    myCanvas.width = 700;
+  }
+}
+let mediaQuery = window.matchMedia("(max-width: 800px)");
+
+changeCanvas(mediaQuery);
+mediaQuery.addEventListener("change", function () {
+  changeCanvas(mediaQuery);
+});
