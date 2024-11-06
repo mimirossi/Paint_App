@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+    <title>Paint_App</title>
+  </head>
+  <body>
+    <div>
+      <h1>My Paint App!</h1>
+      <p>
+        Draw whatever you like! <br />Chose the color of your pen and it's
+        thickness and let your creativity start. <br />When you are ready you
+        can save and download your work on your device. <br />Have Fun!
+      </p>
+      <canvas id="myCanva" width="800" height="600"></canvas>
+      <div class="functions">
+        <input type="color" name="color" id="color" />
+        <input
+          type="range"
+          name="range"
+          id="range"
+          class="range"
+          min="0"
+          max="50"
+        />
+        <div>
+          <button id="save">save</button>
+          <button id="clear">clear</button>
+        </div>
+      </div>
+      <div id="output"></div>
+    </div>
+  </body>
+</html>
