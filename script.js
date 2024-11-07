@@ -215,6 +215,9 @@ function colorForTouch(touch) {
   const color = `#${r}${g}${b}`;
   return color;
 }
+function copyTouch({ identifier, pageX, pageY }) {
+  return { identifier, pageX, pageY };
+}
 function ongoingTouchIndexById(idToFind) {
   for (let i = 0; i < ongoingTouches.length; i++) {
     const id = ongoingTouches[i].identifier;
